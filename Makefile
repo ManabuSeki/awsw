@@ -17,6 +17,8 @@ build: main.go  ## Build a binary.
 .PHONY: cross
 cross: main.go  ## Build binaries for cross platform.
 	mkdir -p pkg
+	rm -rf pkg/*
+
 	@# darwin
 	@for arch in "amd64" "386"; do \
 		GOOS=darwin GOARCH=$${arch} make build; \
